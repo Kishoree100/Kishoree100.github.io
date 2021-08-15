@@ -18,11 +18,11 @@ body {
     line-height: 1.4;
 } */
 
-@media (max-width: 520px) {
+/* @media (max-width: 520px) {
     .extra-btn {
         display: none;
     }
-}
+} */
 
 @media (min-width: 521px) {
     .extra-btn {
