@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+		<head>
+
+			<title>CT Web</title>
+			
+			<script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+ 
+	clevertap.account.push({"id": "4ZZ-8Z4-KK6Z"});
+	clevertap.privacy.push({optOut: false}); 
+	clevertap.privacy.push({useIP: false}); 
+	 (function () {
+		 var wzrk = document.createElement('script');
+		 wzrk.type = 'text/javascript';
+		 wzrk.async = true;
+		 wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+		 var s = document.getElementsByTagName('script')[0];
+		 s.parentNode.insertBefore(wzrk, s);
+  })();
+  	
+function onUserLogin(){
+	var name=document.getElementById("name").value;
+	var email=document.getElementById("email").value;
+	
+	var Dateofbirth=document.getElementById("date").value;
+  	clevertap.onUserLogin.push({
+ 		"Site": {
+   		"Name": name,   
+   		"Email": email,          
+   		       
+   		"DOB": new Date(Dateofbirth)                 // Date of Birth. Date object   
+ 				}
+					});
+
+console.log("profile created")
+		}
+  	
+
+function profilePush(){
+	var name=document.getElementById("name").value;
+	var email=document.getElementById("email").value;
+
+	var Dateofbirth=document.getElementById("date").value;
+	clevertap.profile.push({
+ "Site": {
+   "Name":   name ,         // use the Name variable
+   "Email":  email,         // Email address of the user
+            
+   "DOB": new Date(Dateofbirth)                 // Date of Birth. Date object   
+		 }
+				});
+
+console.log("profile successfully pushed")
+
+}
+
+
+function askForPush(){
+	clevertap.notifications.push({
+"titleText": 'Would you like to receive Push Notifications?',
+"bodyText": 'We promise to only send you relevant content and give you updates on your transactions',
+"okButtonText": 'Yes',
+"rejectButtonText": 'No thanks',
+"okButtonColor": '#F28046'
+});
+
+	console.log("Ok button created")
+	  	}
+
+
+</script>
+
+		</head>
+		<body>
+		<div class="container"> 
+		<div class="header">
+		</div>
+	</div>
+	<form class="form" id="form">
+		<div class="form-control">
+			<h2>Sign up form</h2><p></p><br><br>
+		 <b>	<label>Name</label><p>
+			<input type="text" id="name" placeholder="Enter your Name"></p>
+		</div>
+		<div class="form-control">
+		 	<label>Email</label><p>
+			<input type="Email" id="email" placeholder="Enter your Email id"></p>
+		</div>
+	
+	
+		<div class="form-control">
+		 	<label>DOB</label><p>
+			<input type="date" id="date" placeholder="Enter your date of birth"></p>
+		</div>
+		
+		<button type="button" onclick="onUserLogin()" > <h3>login</h3>  </button><p></p><br><br><br>
+		<button  type="button" onclick="profilePush()"> <h3> Profile push</h3> </button></p><br><br>
+		<button type="button" onclick="askForPush()"  ><h3> Ask for push</h3> </button>
+
+
+	</form>
+	
+	</body>
+	</html>
